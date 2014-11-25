@@ -27,6 +27,11 @@ app.use(bodyParser.json({
 app.use(methodOverride());
 
 
+// models ================================
+
+var Todo = mongoose.model('Todo', {
+  text : String
+});
 
 // routes ======================================================================
 

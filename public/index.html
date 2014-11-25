@@ -1,34 +1,42 @@
 <!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
+<html class="no-js" lang="en" ng-app="app">
 
-    <!-- custom stylesheet -->
-    <link rel="stylesheet" href="css/app.css">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trophy Manager for Dofus</title>
+  <link rel="stylesheet" href="css/foundation.css" />
 
-    <script src="scripts/vendor/modernizr.js"></script>
-  </head>
-  <body>
+  <!-- custom stylesheet -->
+  <link rel="stylesheet" href="css/app.css">
+
+  <script src="scripts/vendor/modernizr.js"></script>
+
+</head>
+
+<body ng-controller="mainController as main">
 
     <div class="row">
       <div class="large-12 columns">
-        <h1>Dofus Trophy Manager</h1>
+        <h1>Trophy Manager</h1>
       </div>
     </div>
     <div class=row>
-      <div class="large-12 columns">
-        change coool !!!
+      <div class="small-12 columns">
+        <h2>Liste de trophées</h2>
       </div>
+      <ul class="block-list">
+        <li class="small-12 columns" ng-repeat="todo in main.todos">
+          <span>{{todo.text}} seems great ? hé </span>
+        </li>
+      </ul>
     </div>
 
-    <script src="scripts/angular/angular.js"></script>
-    <script src="scripts/mm-foundation-0.5.0.js"></script>
-    <script src="app.js"></script>
-    <script>
+  <script src="scripts/angular/angular.js"></script>
+  <script src="scripts/mm-foundation-0.5.0.js"></script>
+  <script src="app.js"></script>
+  <script>
+  </script>
+</body>
 
-    </script>
-  </body>
 </html>

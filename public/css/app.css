@@ -1,1 +1,8 @@
-omg
+.row{
+  /*max-width:20%; /*overrides foundation*/
+}
+
+.block-list>li{
+  list-style:none;
+  padding:0;
+}

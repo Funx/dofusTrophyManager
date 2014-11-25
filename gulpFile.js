@@ -15,8 +15,12 @@ var browserSync = require('browser-sync');
 gulp.task('browser-sync', function() {
     browserSync({
         proxy: "localhost:8080",
-        files:"./public/*"
+        files:"./public/**/*",
+        logLevel: "debug",
+        logConnections: true,
+        injectChanges: false
     });
+    browserSync.reload;
 });
 
 gulp.task('default',['browser-sync'],function(){
