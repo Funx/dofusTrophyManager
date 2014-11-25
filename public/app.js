@@ -3,10 +3,12 @@
   var app = angular.module('app', []);
 
   app.controller('mainController', ['$http', function($http) {
-    self=this;
+    var self=this;
 
     // when landing on the page, get all todos and show them
-    $http.get('/api/todos').success(function(data) {self.todos = data;}).error(function(data) {});
+    $http.get('/api/todos')
+    .success(function(data) {self.todos = data;})
+    .error(function(data) {});
 
 }]);
 /*
