@@ -1,14 +1,23 @@
 {
-  "name"         : "dofus-trophy-manager",
-  "version"      : "0.0.0",
-  "description"  : "",
-  "main"         : "server.js",
-  "author"       : "Funx",
-  "dependencies" : {
-    "express"    : "~4.7.2",
-    "mongoose"   : "~3.6.2",
-    "morgan"     : "~1.2.2",
+  "name": "dofus-trophy-manager",
+  "version": "0.0.0",
+  "description": "",
+  "main": "server.js",
+  "author": "Funx",
+  "dependencies": {
+    "express": "~4.7.2",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
     "body-parser": "~1.5.2",
     "method-override": "~2.1.2"
-    }
+  },
+  "devDependencies": {
+    "gulp": "~3.8.10",
+    "gulp-nodemon": "~1.0.4",
+    "gulp-rename": "~1.2.0",
+    "gulp-concat": "~2.4.2",
+    "gulp-uglify": "~1.0.1",
+    "gulp-jshint": "~1.9.0",
+    "browser-sync": "~1.7.1"
+  }
 }
