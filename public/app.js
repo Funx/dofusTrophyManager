@@ -3,15 +3,17 @@
   var app = angular.module('app', []);
 
   app.controller('mainController', ['$http', function($http) {
-    var self=this;
+    var self = this;
 
     // when landing on the page, get all todos and show them
     $http.get('/api/todos')
-    .success(function(data) {self.todos = data;})
-    .error(function(data) {});
+      .success(function(data) {
+        self.todos = data;
+      })
+      .error(function(data) {
+        console.log('Error: ' + data);
+      });
 
-}]);
-/*
     // when submitting the add form, send the text to the node API
     this.createTodo = function() {
       $http.post('/api/todos', self.formData)
@@ -25,13 +27,9 @@
         });
     };
 
-  }]);
-
-  /*
-
-
     // delete a todo after checking it
     this.deleteTodo = function(id) {
+      self.todos.splice(0,1);
       $http.delete('/api/todos/' + id)
         .success(function(data) {
           self.todos = data;
@@ -42,5 +40,6 @@
         });
     };
 
-  }]);*/
+  }]);
+
 })();

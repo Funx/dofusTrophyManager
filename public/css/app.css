@@ -1,8 +1,27 @@
-.row{
-  /*max-width:20%; /*overrides foundation*/
+body{
+  height:200%;
 }
 
-.block-list>li{
+ul.todos{
   list-style:none;
-  padding:0;
+  padding:2em;
+  max-width:483px;
+  margin:0;
+  float:left!important;
+}
+.todos .todo{
+  position:relative;
+  display:block;
+  padding:0 1rem 0;
+  line-height:3rem;
+  height:3em;
+  margin-bottom:0.5rem;
+
+
+}
+.todos .todo button{
+  position:absolute;
+  right:0;
+  top:0;
+  bottom:0;
 }

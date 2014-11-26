@@ -5,7 +5,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Trophy Manager for Dofus</title>
+  <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/foundation.css" />
+
+  <link rel="stylesheet" href="css/animate.css" />
 
   <!-- custom stylesheet -->
   <link rel="stylesheet" href="css/app.css">
@@ -17,17 +20,27 @@
 <body ng-controller="mainController as main">
 
     <div class="row">
-      <div class="large-12 columns">
-        <h1>Trophy Manager</h1>
+      <div class="column small-12">
+        <h1>Coucou laura loul</h1>
       </div>
     </div>
-    <div class=row>
-      <div class="small-12 columns">
+    <div class="row">
+      <div class="column small-12">
         <h2>Liste de trophées</h2>
       </div>
-      <ul class="block-list">
-        <li class="small-12 columns" ng-repeat="todo in main.todos">
-          <span>{{todo.text}} seems great ? hé </span>
+      <ul class="column large-6 todos">
+        <li class="row" ng-repeat="todo in main.todos">
+          <div class="column small-12 panel todo">
+            {{todo.text}}
+            <button class="right" ng-click="main.deleteTodo(todo._id)">Ok</button>
+          </div>
+        </li>
+      </ul>
+      <ul class="column large-6 todos">
+        <li class="row" ng-repeat="todo in main.todos">
+          <div class="column small-12 panel todo">
+            {{todo.text}}<button class="right">Ok</button>
+          </div>
         </li>
       </ul>
     </div>
