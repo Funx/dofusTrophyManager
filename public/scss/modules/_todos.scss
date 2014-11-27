@@ -5,11 +5,11 @@ $row-height : 3rem;
 }
 
 .todo{
-  background-color:#94c07a;
   position:relative;
   padding:1rem;
   padding-right:$row-height+1rem;
   margin-bottom:0.5rem;
+  text-transform:capitalize;
 }
 
 .todo-button{
@@ -21,13 +21,15 @@ $row-height : 3rem;
 .todos-form{
   position:relative;
 }
-/*
-.todos-form-text{
+
+input[type=text].todo-form-text{
   display:block;
   position:absolute;
   left:0;
   top:0;
   bottom:0;
   font-size:1rem;
-  height:3rem;
-}*/
+  height:auto;
+  padding:1rem;
+  padding-right:$row-height+1rem;
+}
