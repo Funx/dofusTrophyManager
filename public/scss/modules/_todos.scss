@@ -1,0 +1,33 @@
+$row-height : 3rem;
+
+.todos{
+
+}
+
+.todo{
+  background-color:#94c07a;
+  position:relative;
+  padding:1rem;
+  padding-right:$row-height+1rem;
+  margin-bottom:0.5rem;
+}
+
+.todo-button{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:$row-height;
+}
+
+.todos-form{
+  position:relative;
+}
+/*
+.todos-form-text{
+  display:block;
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  font-size:1rem;
+  height:3rem;
+}*/

@@ -23,17 +23,15 @@
     <h2 class="column">Liste de trophées</h2>
   </div>
   <div class="row">
-    <ul class="column medium-6 large-4 todos">
-      <li class="row panel" ng-repeat="todo in main.todos" ng-hide="">
-        <div class="column todo">
+    <ul class="column medium-6 large-4 todos neutralized-list">
+      <li class="panel todo" ng-repeat="todo in main.todos" ng-hide="">
           {{todo.text}}
-          <button class="right" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
-        </div>
+          <button class="button right todo-button" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
       </li>
-      <li class="row">
-        <form class="" ng-submit="main.createTodo()">
-          <input type="text" class="" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
-          <input type="submit" class="right button">
+      <li class="">
+        <form class="todos-form" ng-submit="main.createTodo()">
+          <input type="text" class="todo-form-text" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
+          <input type="submit" class="button right">
         </form>
       </li>
     </ul>
