@@ -1,16 +1,16 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
+var sass = require('gulp-sass');
 
-// Static server
-/*gulp.task('browser-sync', function() {
-    browserSync({
-        server: {
-            baseDir: "./public"
-        }
-    });
-});*/
-
-// or...
+gulp.task('sass', function () {
+  gulp.src('./public/scss/app.scss')
+  .pipe(sass({
+    // includePaths: require('node-bourbon').with('other/path', 'another/path')
+    // - or -
+    includePaths: require('node-bourbon').includePaths
+  }))
+  .pipe(gulp.dest('path/to/output.css'));
+});
 
 gulp.task('browser-sync', function() {
     browserSync({
@@ -21,6 +21,6 @@ gulp.task('browser-sync', function() {
     browserSync.reload();
 });
 
-gulp.task('default',['browser-sync'],function(){
+gulp.task('default',['sass','browser-sync'],function(){
   browserSync.reload();
 });

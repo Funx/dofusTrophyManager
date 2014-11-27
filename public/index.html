@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html class="no-js" lang="en" ng-app="app">
 
 <head>
@@ -19,33 +19,33 @@
 
 <body ng-controller="mainController as main">
 
-    <div class="row">
-      <div class="column small-12">
-        <h1>Trophy manager</h1>
-      </div>
+  <div class="row">
+    <div class="column small-12">
+      <h1>Trophy manager</h1>
     </div>
-    <div class="row">
-      <div class="column">
-        <h2>Liste de trophées</h2>
-      </div>
-      <ul class="column medium-6 todos">
-        <li class="row" ng-repeat="todo in main.todos" ng-hide="">
-          <div class="column small-12 panel todo">
-            {{todo.text}}
-            <button class="right" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
-          </div>
-        </li>
-        <li class="row">
-          <form class="column small-12" ng-submit="main.createTodo()">
-            <input type="text" class="left" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
-            <input type="submit" class="right button">
-          </form>
-        </li>
-      </ul>
-    </div>
+  </div>
+  <div class="row">
+    <h2 class="column">Liste de trophées</h2>
+  </div>
+  <div class="row">
+    <ul class="column medium-6 todos">
+      <li class="row panel" ng-repeat="todo in main.todos" ng-hide="">
+        <div class="column todo">
+          {{todo.text}}
+          <button class="right" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
+        </div>
+      </li>
+      <li class="row">
+        <form class="" ng-submit="main.createTodo()">
+          <input type="text" class="left" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
+          <input type="submit" class="right button">
+        </form>
+      </li>
+    </ul>
+  </div>
 
-  <script src="scripts/angular/angular.js"></script>
-  <script src="scripts/mm-foundation-0.5.0.js"></script>
+  <script src="scripts/vendor/angular/angular.js"></script>
+  <script src="scripts/vendor/mm-foundation-0.5.0.js"></script>
   <script src="app.js"></script>
   <script>
   </script>
