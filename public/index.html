@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   <title>Trophy Manager for Dofus</title>
   <link rel="stylesheet" href="css/normalize.css" />
   <link rel="stylesheet" href="css/foundation.css" />
@@ -21,7 +21,7 @@
 
     <div class="row">
       <div class="column small-12">
-        <h1>Coucou laura loul</h1>
+        <h1>Trophy manager</h1>
       </div>
     </div>
     <div class="row">
@@ -29,18 +29,17 @@
         <h2>Liste de trophées</h2>
       </div>
       <ul class="column large-6 todos">
-        <li class="row" ng-repeat="todo in main.todos">
+        <li class="row" ng-repeat="todo in main.todos" ng-hide="">
           <div class="column small-12 panel todo">
             {{todo.text}}
-            <button class="right" ng-click="main.deleteTodo(todo._id)">Ok</button>
+            <button class="right" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
           </div>
         </li>
-      </ul>
-      <ul class="column large-6 todos">
-        <li class="row" ng-repeat="todo in main.todos">
-          <div class="column small-12 panel todo">
-            {{todo.text}}<button class="right">Ok</button>
-          </div>
+        <li class="row">
+          <form class="column small-12" ng-submit="main.createTodo()">
+            <input type="text" class="left" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
+            <input type="submit" class="right button">
+          </form>
         </li>
       </ul>
     </div>

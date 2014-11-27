@@ -54,20 +54,33 @@ app.get('/api/todos', function(req, res) {
 // create todo and send back all todos after creation
 app.post('/api/todos', function(req, res) {
   // create a todo, information comes from AJAX request from Angular
-  Todo.create({
+
+  var todo = new Todo();
+  todo.text = req.body.text;
+  res.json(todo)
+  todo.save(function(err,todo){
+  });
+  console.log("new todo")
+  /*Todo.create({
     text: req.body.text,
     done: false
   }, function(err, todo) {
     if (err)
       res.send(err);
+    console.log(todo);
+    //(todo);
+    var promise = Todo.findById(todo._id)
+    res.json(this);
 
+    */
     // get and return all the todos after you create another
-    Todo.find(function(err, todos) {
+    /*Todo.find(function(err, todos) {
       if (err)
         res.send(err)
       res.json(todos);
-    });
-  });
+    });*/
+
+  //});
 
 });
 

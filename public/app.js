@@ -2,8 +2,10 @@
   // public/app.js
   var app = angular.module('app', []);
 
-  app.controller('mainController', ['$http', function($http) {
+  app.controller('mainController', ['$scope', '$http', function($scope, $http) {
     var self = this;
+    self.formData = {};
+    self.placeHolder = "Nom de l'objet";
 
     // when landing on the page, get all todos and show them
     $http.get('/api/todos')
@@ -16,24 +18,25 @@
 
     // when submitting the add form, send the text to the node API
     this.createTodo = function() {
+      var todoIndex = self.todos.push(self.formData);
+
       $http.post('/api/todos', self.formData)
         .success(function(data) {
-          self.formData = {}; // clear the form so our user is ready to enter another
-          self.todos = data;
-          console.log(data);
+          self.todos[todoIndex-1] = data;
         })
         .error(function(data) {
           console.log('Error: ' + data);
         });
+
+      self.formData = {};
     };
 
     // delete a todo after checking it
-    this.deleteTodo = function(id) {
-      self.todos.splice(0,1);
+    this.deleteTodo = function(id, index) {
+      self.todos.splice(index, 1);
       $http.delete('/api/todos/' + id)
         .success(function(data) {
-          self.todos = data;
-          console.log(data);
+          //self.todos = data;
         })
         .error(function(data) {
           console.log('Error: ' + data);
