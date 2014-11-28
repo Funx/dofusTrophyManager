@@ -15,7 +15,7 @@ gulp.task('browser-sync', function() {
         proxy: "localhost:8080",
         files:["./public/**/*.html",
         "./public/css/*.css",
-        "./public/scripts/**/*.js",
+        "./public/scripts/*.js",
         "./public/images/**/*"],
         notify: false
     });

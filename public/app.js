@@ -1,6 +1,6 @@
 (function() {
   // public/app.js
-  var app = angular.module('app', []);
+  var app = angular.module('app', ['ngAnimate']);
 
   app.controller('mainController', ['$scope', '$http', function($scope, $http) {
     var self = this;
@@ -22,7 +22,7 @@
 
       $http.post('/api/todos', self.formData)
         .success(function(data) {
-          self.todos[todoIndex-1] = data;
+          self.todos[todoIndex-1]._id = data._id;
         })
         .error(function(data) {
           console.log('Error: ' + data);

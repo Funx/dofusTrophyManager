@@ -3,6 +3,10 @@
   box-shadow: $value*0.0px $value*1px $value*2px (rgba(0,0,0,0.2));
   transform: scale(($value) * 0.0025 + 1);
   z-index:$value*10;
+
+  transition-property:box-shadow, transform, z-index;
+  transition-duration:0.3s;
+  transition-timing-function:ease-in-out;
 }
 
 .isBlock{
@@ -15,6 +19,8 @@
 
 .neutralized-list{
   list-style:none;
+  padding:0;
+  width:100%;
 }/*
 .materials{
   &:first-child{
@@ -25,59 +31,104 @@
 
   }
 }*/
-.material{
-  @include setZ(0);
-  overflow:hidden;
-  border-radius:5px;
+$radius:2px;
+$borderStroke:0px;
+$lightBorder:rgba(255,255,255,0.2);
+$noLightBorder:rgba(255,255,255,0);
+$darkBorder:rgba(0,0,0,0.2);
+$noDarkBorder:rgba(0,0,0,0);
 
-  border-top:solid 1px rgba(255,255,255,0.1);
-  border-left:solid 1px rgba(255,255,255,0.1);
-  border-bottom:solid 1px rgba(0,0,0,0.1);
-  border-right:solid 1px rgba(0,0,0,0.1);
-
-  &:hover,&:active{
-    border-radius:5px;
-  }
+.cut-top{
+  border-top:solid $borderStroke $lightBorder;
+  border-top-left-radius:$radius;
+  border-top-right-radius:$radius;
 }
-.material.join-top{
-  border-top:0;
+.cut-bottom{
+  border-bottom:solid $borderStroke $darkBorder;
+  border-bottom-left-radius:$radius;
+  border-bottom-right-radius:$radius;
+}
+.cut-right{
+  border-right:solid $borderStroke $darkBorder;
+  border-top-right-radius:$radius;
+  border-bottom-right-radius:$radius;
+}
+.cut-left{
+  border-left:solid $borderStroke $lightBorder;
+  border-top-left-radius:$radius;
+  border-bottom-left-radius:$radius;
+}
+.cut-vertical{
+ @extend .cut-top;
+ @extend .cut-bottom;
+}
+.cut-horizontal{
+ @extend .cut-left;
+ @extend .cut-right;
+}
+.cut{
+ @extend .cut-vertical;
+ @extend .cut-horizontal;
+}
+
+.heal-top{
+  border-top:solid $borderStroke $noLightBorder;
   border-top-left-radius:0;
   border-top-right-radius:0;
-  &:hover,&:active{
-    @extend .material;
-  }
 }
-.material.join-bottom{
-  border-bottom:0;
+.heal-bottom{
+  border-bottom:solid $borderStroke $noDarkBorder;
   border-bottom-left-radius:0;
   border-bottom-right-radius:0;
+  @extend .no-shadow;
+}
+.heal-right{
+  border-right:solid $borderStroke $noDarkBorder;
+  border-top-right-radius:0;
+  border-bottom-right-radius:0;
+}
+.heal-left{
+  border-left:solid $borderStroke $noLightBorder;
+  border-top-left-radius:0;
+  border-bottom-left-radius:0;
+}
+.heal-vertical{
+ @extend .heal-top;
+ @extend .heal-bottom;
+}
+.heal-horizontal{
+ @extend .heal-left;
+ @extend .heal-right;
+}
+.heal{
+ @extend .heal-vertical;
+ @extend .heal-horizontal;
+}
+
+.material{
+  overflow:hidden;
+  @extend .cut;
+
   &:hover,&:active{
-    @extend .material;
+    @extend .cut;
   }
 }
+
 .low{
   // @extend .material;
-  @include setZ(1);
+  @include setZ(2);
 }
 .medium{
   // @extend .material;
-  @include setZ(4);
+  @include setZ(8);
 }
 .high{
   // @extend .material;
-  @include setZ(7);
+  @include setZ(16);
 }
 .no-scale{
   transform: scale(1)!important;
 }
-.no-sadow{
+.no-shadow{
   box-shadow: none;
-}
-
-.enter{
-  opacity:0;
-}
-
-.leave{
-  opacity:0;
 }

@@ -1,7 +1,12 @@
 $row-height : 3rem;
 
-.todos{
-
+.todos ul>li{
+  &:first-child{
+    @extend .cut-top;
+  }
+  &:last-child{
+    @extend .cut-bottom;
+  }
 }
 
 .todo{
