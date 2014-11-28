@@ -13,18 +13,20 @@
 </head>
 
 <body ng-controller="mainController as main">
-
-  <div class="row header">
+<div class="header low no-scale">
+  <div class="row">
     <div class="column small-12">
       <h1 class="header-title">Trophy manager</h1>
     </div>
   </div>
+</div>
+
   <div class="row">
     <h2 class="column">Liste de trophées</h2>
   </div>
   <div class="row">
     <ul class="column medium-6 large-4 todos neutralized-list">
-      <li class="panel todo" ng-repeat="todo in main.todos" ng-hide="">
+      <li class="panel todo material join-top join-bottom" ng-repeat="todo in main.todos" ng-hide="">
           {{todo.text}}
           <button class="button right todo-button" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
       </li>
