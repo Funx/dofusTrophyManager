@@ -1,5 +1,5 @@
 *{
-  transition:all 0.6s ease-in-out;
+  transition:all 0.3s ease-in-out;
 }
 
 .panel{
@@ -13,7 +13,7 @@ input[type=text]{
 }
 
 .todo.ng-enter,.todo.ng-enter.ng-enter-active,.todo.ng-leave,.todo.ng-leave.ng-leave-active{
-  transition : all 5s ease-in-out-bounce;
+  transition : all 1s ease-in-out-bounce;
 }
 
 .todo.ng-enter{
