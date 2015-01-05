@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" ng-app="app">
+<html class="no-js" lang="en" ng-app="application">
 
 <head>
   <meta charset="utf-8" />
@@ -7,43 +7,24 @@
   <title>Trophy Manager for Dofus</title>
 
   <link rel="stylesheet" href="assets/css/app.css">
-
-  <script src="scripts/vendor/modernizr.js"></script>
-
 </head>
 
-<body ng-controller="mainController as main">
-  <div class="header low no-scale">
-    <div class="row">
-      <div class="column small-12">
-        <h1 class="header-title">Trophy manager</h1>
-      </div>
-    </div>
+<body>
+
+  <div class="primary title-bar fixed">
+    <h1 class="center title">Trophy manager</h1>
+    <a class="left">Open menu</a>
+
+    <ul class="menu-bar">
+
+    </ul>
   </div>
 
-  <div class="row">
-    <h2 class="column">Liste de trophées</h2>
-  </div>
-  <div class="row">
-    <div class="column medium-6 large-4 todos">
-      <ul class="neutralized-list">
-        <li class="panel todo material heal-vertical" ng-repeat="todo in main.todos track by todo._id" ng-hide="">
-          {{todo.text}}
-          <button class="button right todo-button" ng-click="main.deleteTodo(todo._id,$index)">Ok</button>
-        </li>
-      </ul>
-      <li class="material heal-top">
-        <form class="todos-form" ng-submit="main.createTodo()">
-          <input type="text" class="todo-form-text" ng-model="main.formData.text" placeholder="{{main.placeHolder}}" required>
-          <input type="submit" class="button right">
-        </form>
-      </li>
-    </div>
-  </div>
+  <div ui-view></div>
 
   <script src="assets/js/foundation.js"></script>
-  <script src="assets/js/routes.js"></script>
   <script src="assets/js/app.js"></script>
+  <script src="assets/js/routes.js"></script>
 
   <script>
   </script>

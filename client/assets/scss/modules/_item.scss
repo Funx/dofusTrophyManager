@@ -1,0 +1,146 @@
+//ordre :
+$c0: 0;
+$c1: 2%;
+$c2: 4%;
+$c3: 6%;
+$c4: 5%;
+$c5: 3%;
+$c6: 1%;
+
+$base-color: darken($primary-color,3%);
+
+.items {
+  @include grid-block;
+  @include grid-wrap(true);
+  @include grid-align(left);
+
+  @include grid-layout(1);
+
+  @include breakpoint(small) {
+    @include grid-layout(2);
+
+  }
+  @include breakpoint(medium) {
+    @include grid-layout(4);
+
+  }
+  @include breakpoint(large) {
+    @include grid-layout(8);
+
+  }
+  background-color: lighten($base-color,20%);
+  overflow-y:hidden;
+  width:100%;
+}
+.item {
+  position: relative;
+  z-index:1;
+
+  &:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+
+}
+.item-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  text-align: center;
+  .background-image{
+    opacity:0.5;
+  }
+  &.lucrative .background-image{
+    opacity:1;
+  }
+}
+.item-description{
+  z-index:1;
+  opacity:0;
+}
+
+.item {
+  cursor:pointer;
+
+  &:nth-child(7n+0) {
+    $actual-color: lighten($base-color,$c0);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+1) {
+    $actual-color: lighten($base-color,$c1);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+2) {
+    $actual-color: lighten($base-color,$c2);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+3) {
+    $actual-color: lighten($base-color,$c3);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+4) {
+    $actual-color: lighten($base-color,$c4);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+5) {
+    $actual-color: lighten($base-color,$c5);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+  &:nth-child(7n+6) {
+    $actual-color: lighten($base-color,$c6);
+    .item-content {
+      background-color: $actual-color;
+    }
+
+  }
+
+  .item-content.selected{
+    background-color:$secondary-color;
+  }
+
+  &:hover, &:focus, &:active {
+    z-index:10;
+    transform:scale(1.02);
+    .item-content {
+      background-color: lighten($base-color,20%);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius:2px;
+    }
+    .item-content.selected{
+      background-color:lighten($secondary-color,20%);
+    }
+    .item-description{
+      opacity:1;
+    }
+    .background-image{
+      opacity:0;
+    }
+  }
+}

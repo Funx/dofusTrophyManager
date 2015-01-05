@@ -1,0 +1,17 @@
+
+<div class="items">
+  <div class="item" ng-repeat="item in items">
+    <div class='item-content' ng-class="{lucrative: isLucrative(item), selected: item.isSelected}"  ng-click="toggleSelect(item)">
+      <img ng-src="assets/img/{{ item.img }}.png" class="background-image">
+      <div class='item-description'>
+        <h4>{{ item.title }}</h4>
+        <span class="price">{{ item.craftPrice }} kamas</span>
+        <span class="price">{{ item.sellPrice }} kamas</span>
+        <div class="benefits">
+           <span class="price">{{ calcBenefits(item) }} kamas </span>
+           <span class="price">{{ calcBenefits(item, true) }} %</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

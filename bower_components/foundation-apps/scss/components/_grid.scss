@@ -15,10 +15,13 @@
    - Offsets
 */
 
+/// @Foundation.settings
+// Grid
 $container-width: rem-calc(900) !default;
 $block-padding: $global-padding !default;
 $total-columns: 12 !default;
 $block-grid-max-size: 6 !default;
+///
 
 /*
   Define the size of a grid block. Blocks are flex items. By default, they stretch to fill all available space, based on the size of sibling blocks. This is the "expand" behavior.
@@ -35,7 +38,10 @@ $block-grid-max-size: 6 !default;
 */
 @mixin grid-size($size: expand) {
 	@if (type-of($size) == 'number') {
-		flex: 0 0 percentage($size / $total-columns);
+    $pct: percentage($size / $total-columns);
+		flex: 0 0 $pct;
+    // max-width prevents columns from wrapping early in IE10/11
+    max-width: $pct;
 	}
 	@else if ($size == shrink) {
 		flex: 0 0 auto;

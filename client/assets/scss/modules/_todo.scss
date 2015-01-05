@@ -1,0 +1,41 @@
+$row-height : 3rem;
+
+.todos ul>li{
+  &:first-child{
+    @extend .cut-top;
+  }
+  &:last-child{
+    @extend .cut-bottom;
+  }
+}
+
+.todo{
+  @extend .panel;
+  position:relative;
+  padding:1rem;
+  padding-right:$row-height+1rem;
+  margin-bottom:0;
+  text-transform:capitalize;
+}
+
+.todo-button{
+  position:absolute;
+  right:0;top:0;bottom:0;
+  width:$row-height;
+}
+
+.todos-form{
+  position:relative;
+}
+
+input[type=text].todo-form-text{
+  display:block;
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  font-size:1rem;
+  height:auto;
+  padding:1rem;
+  padding-right:$row-height+1rem;
+}

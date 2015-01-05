@@ -1,0 +1,11 @@
+/*.header{
+  @extend %panel-base;
+  @include panel-layout(
+    $position: left,
+    $size: default;
+  );
+  @include panel-style(
+    $padding: 1rem,
+    $background: #fff
+  );
+}*/

@@ -192,7 +192,7 @@ If none of this makes sense, stick with `ui-sref-active-eq`
 Foundation has some great helpers that foster better interaction between elements.
 
 **zf-close**
-zf-close looks for a parent element that has the `zf-closeable` tag on it. This tag is added automatically for all directives that can be closed with `zf-close`. When clicked, the directive will send a message via the FoundationApi to close its parent `zf-closeable` element.
+zf-close looks for a parent element that has the `zf-closable` tag on it. This tag is added automatically for all directives that can be closed with `zf-close`. When clicked, the directive will send a message via the FoundationApi to close its parent `zf-closable` element.
 
 ````html
 <zf-modal id="pageModal">
@@ -200,7 +200,7 @@ zf-close looks for a parent element that has the `zf-closeable` tag on it. This 
 </zf-modal>
 ````
 
-Note that you can specify the ID of a specific closeable directive in order to close it remotely (whether it's a parent, child, or has any other relationship to the closeable directive).
+Note that you can specify the ID of a specific closable directive in order to close it remotely (whether it's a parent, child, or has any other relationship to the closable directive).
 
 ````html
 <a href="#" zf-close="pageModal">&times;</a>
@@ -466,8 +466,19 @@ In fact, the directives `zf-close`, `zf-open`, and `zf-toggle` are wrappers for 
 
 ###Building your own app
 
-Most of the modules are dependent on the `foundation.common.services` module but outside of that, they're portable. You're welcome to take them and use them as you need to; however, there are some things to know about:
+Most of the modules are dependent on the `foundation.core` module but outside of that, they're portable. You're welcome to take them and use them as you need to; however, there are some things to know about:
 
-- any and all helpers such as `zf-open` and `zf-close` are packaged in the `foundation.common.directives` module so if there is a need for them, require the module.
+- any and all helpers such as `zf-open` and `zf-close` are packaged in the `foundation.common` module so if there is a need for them, require the module.
 - the `app.js` file which bootstraps the application can be fully bypassed so you can build your own. Make sure to use proper dependency injection for the modules you DO want to use.
 - if you install the repo as part of bower, make sure to reference all the right files in your build process in your Gulpfile
+
+###Using Foundation as a dependency
+
+As of v1.1, Foundation for Apps will/does support being included via dependency injection. If you're building your own application or want to include FA in an existing application, here's what you need to know:
+
+1. FA depends on `foundation.core` which includes the `FoundationApi` service as well as several different factories/services that help it chug along. Most notably, it includes a configuration that imports SASS media queries. This is necessary for Interchange.
+2. the `foundation` module imports all of the directives, common directives, and `foundation.core`.
+3. `foundation.dynamicRouting` is a module that sets up the `ui.router` routing.
+4. `foundation.dynamicRouting.animations` is an additional module for `foundation.dynamicRouting` which enables view animation
+
+When creating a custom `app.js`, the only necessary configuration is setting up the `$urlProvider` and `$locationProvider`. The sample configuration is included in the `app.js` in the `js/angular` folder.

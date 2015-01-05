@@ -18,7 +18,7 @@ var connect        = require('gulp-connect');
 var path           = require('path');
 var modRewrite     = require('connect-modrewrite');
 var dynamicRouting = require('./bower_components/foundation-apps/bin/gulp-dynamic-routing');
-var browserSync = require('browser-sync');
+var browserSync    = require('browser-sync');
 
 // 2. SETTINGS VARIABLES
 // - - - - - - - - - - - - - - -
@@ -28,7 +28,7 @@ var reload = browserSync.reload;
 // Sass will check these folders for files when you use @import.
 var sassPaths = [
   'client/assets/scss',
-  'bower_components/foundation-apps/scss'
+  'bower_components/foundation-apps/scss',
 ];
 // These files include Foundation for Apps and its dependencies
 var foundationJS = [
@@ -37,13 +37,14 @@ var foundationJS = [
   'bower_components/tether/tether.js',
   'bower_components/angular/angular.js',
   'bower_components/angular-animate/angular-animate.js',
+  'bower_components/angular-route/angular-route.js',
   'bower_components/ui-router/release/angular-ui-router.js',
   'bower_components/foundation-apps/js/vendor/**/*.js',
   'bower_components/foundation-apps/js/angular/**/*.js'
 ];
 // These files are for your app's JavaScript
 var appJS = [
-  'client/assets/js/app.js'
+  'client/assets/js/**/*.js',
 ];
 
 // 3. TASKS
@@ -80,7 +81,7 @@ gulp.task('copy', function() {
 
 // Compiles Sass
 gulp.task('sass', function() {
-  return gulp.src('client/assets/scss/app.scss')
+  return gulp.src('client/assets/scss/**/*.scss')
     .pipe(sass({
       loadPath: sassPaths,
       style: 'nested',
@@ -157,7 +158,7 @@ gulp.task('build', function() {
 // Default task: builds your app, starts a server, and recompiles assets when they change
 gulp.task('default', ['build', 'browser-sync'], function() {
   // Watch Sass
-  gulp.watch(['./client/assets/scss/**/*', './scss/**/*'], ['sass']);
+  gulp.watch(['./client/assets/scss/**/*.scss', './scss/**/*.scss'], ['sass']);
 
   // Watch JavaScript
   gulp.watch(['./client/assets/js/**/*', './js/**/*'], ['uglify']);
